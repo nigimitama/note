@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1588131161640.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3359790418",
+    "id" : "29A02A61",
+    "lastKnownWriteTime" : 1588131242,
+    "last_content_update" : 1588131242836,
+    "path" : "C:/Users/a/Google ドライブ/blog/note_github/Rmd/20200428_Why_bagging_works.Rmd",
+    "project_path" : "20200428_Why_bagging_works.Rmd",
+    "properties" : {
+        "cursorPosition" : "98,9",
+        "scrollLine" : "81"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

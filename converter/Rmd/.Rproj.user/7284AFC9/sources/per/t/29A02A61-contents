@@ -1,8 +1,28 @@
-# なぜバギングは予測精度を上げるのか
+---
+title: "なぜバギングは予測誤差を下げるのか"
+author: "mitama"
+date: "`r Sys.Date()`"
+output:
+ html_document:
+    css : R_style.css
+    #theme: cosmo
+    highlight: haddock     # Rスクリプトのハイライト形式
+    #code_folding: 'hide'  # Rコードの折りたたみ表示を設定
+    toc: true
+    toc_depth: 3           # 見出しの表示とその深さを指定
+    toc_float: true        # 見出しを横に表示し続ける
+    #number_sections: true # 見出しごとに番号を振る
+    df_print: paged        # head()の出力をnotebook的なものに（tibbleと相性良）
+    latex_engine: xelatex  # zxjatypeパッケージを使用するために変更
+    fig_height: 3          # 画像サイズのデフォルトを設定
+    fig_width: 4           # 画像サイズのデフォルトを設定
+    dev: png
+classoption: xelatex,ja=standard
+---
 
 機械学習の分野では、バギング（bagging）というアンサンブル学習の方法があります。
 
-**なぜバギングで予測精度が上がるのか？**という点について少し学んだのでメモしておきます。
+**なぜバギングは予測誤差を下げるのか？**という点について少し学んだのでメモしておきます。
 
 
 
@@ -30,7 +50,7 @@ $$
 $$
 と分解できます。ただし、$\text{E}_{\mathcal D}$はいろいろな訓練サンプル集合$\mathcal D$についてとった平均です。各用語の意味は以下の通り：
 
-- **削減不能な誤差**（irreducible error）：$\text{Var}_{\mathcal D}[Y|X=x_0]=\text{Var}_{\mathcal D}[\varepsilon]=\sigma^2_{\varepsilon}$
+- **削減不能な誤差**（irreducible error）：$\begin{align}\text{Var}_{\mathcal D}[Y|X=x_0]=\text{Var}_{\mathcal D}[\varepsilon]=\sigma^2_{\varepsilon}\end{align}$
   データの測定誤差などに由来する、目的変数の分散でありノイズの分散
 - **バイアス**（Bias）：$\text{E}_{\mathcal D}[\hat{f}(x_0)] - f(x_0)$
   平均的な予測値と真の値との差
@@ -66,9 +86,11 @@ $$
 
 Breiman（1999）が行った実験結果をまとめたのが以下の表です。
 
-![image-20200427012403568](20200410_なぜbaggingは予測精度を上げるのか.assets/image-20200427012403568.png)
+![](20200428_なぜbaggingは予測精度を上げるのか.assets/image-20200427012403568.png)
 
-Data Setはデータセット名、Noiseはデータセットのノイズ、Unpruned CARTは、枝刈りを行わなかった単体の決定木で、Baggingは枝刈りしていない50本の決定木で構成されたBaggingです。
+Data Setはデータセット名、Noiseはデータセットのノイズです。
+
+Unpruned CARTは、枝刈りを行わなかった単体の決定木で、Baggingは枝刈りしていない50本の決定木で構成されたBaggingです。
 
 理論解析の結論とほぼ合致していて、**Baggingが単体の決定木と同程度のBiasを保ったままVarianceを大幅に削減している**ことがわかります。
 
@@ -95,7 +117,7 @@ $$
 
 単純なバギングで決定木を作っただけでは$\rho \sigma^2$が残ってしまい、分散の低減効果が少なくなります。
 
-そこでランダムフォレスト（Breiman  2001）では、複数の決定木を作っていくフェーズで、あらかじめ決めた数の特徴量をランダムに選び出して決定木を作ることで決定木間の相関を大幅に減らすように工夫されています。
+そのため、**ランダムフォレスト**（Breiman  2001）では、複数の決定木を作っていくフェーズで、あらかじめ決めた数の特徴量をランダムに選び出して決定木を作ることで決定木間の相関を大幅に減らすように工夫されています。
 
 # 参考
 
