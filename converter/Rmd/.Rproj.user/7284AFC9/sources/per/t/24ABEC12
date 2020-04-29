@@ -1,24 +1,22 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1588130349012.000,
+    "created" : 1588133316323.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "2965196135",
-    "id" : "E5764051",
+    "id" : "24ABEC12",
     "lastKnownWriteTime" : 1588131066,
-    "last_content_update" : 1588131066552,
-    "path" : "C:/Users/a/Google ドライブ/blog/note_github/Rmd/20200426_bias_variance_decomposition.Rmd",
+    "last_content_update" : 1588131066,
+    "path" : "C:/Users/a/Google ドライブ/blog/note_github/converter/Rmd/20200426_bias_variance_decomposition.Rmd",
     "project_path" : "20200426_bias_variance_decomposition.Rmd",
     "properties" : {
-        "cursorPosition" : "0,0",
-        "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 2,
+    "relative_order" : 3,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_markdown"

@@ -81,26 +81,26 @@ class HatenaMarkdown:
         return self
 
     def _replace_double_dollar(self):
-        """$$ ... $$ を <p class="matjax display">\[ ... \]</p>に置換する"""
+        """$$ ... $$ を <p class="math display">\[ ... \]</p>に置換する"""
         output: str = ""
         mds: list = self.md.split("$$")
         for i in range(len(mds)):
             if i % 2 == 0:
                 output += mds[i]
             else:
-                output += '<p class="mathjax display">\[' + mds[i] + '\]</p>'
+                output += '<p class="math display">\[' + mds[i] + '\]</p>'
         self.md = output
         return self
 
     def _replace_dollar(self):
-        """$ ... $ を <span class="mathjax inline">\( ... \)</span>に置換する"""
+        """$ ... $ を <span class="math inline">\( ... \)</span>に置換する"""
         output: str = ""
         mds: list = self.md.split("$")
         for i in range(len(mds)):
             if i % 2 == 0:
                 output += mds[i]
             else:
-                output += '<span class="mathjax inline">\(' + mds[i] + '\)</span>'
+                output += '<span class="math inline">\(' + mds[i] + '\)</span>'
         self.md = output
         return self
 
